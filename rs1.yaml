@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs
+spec:
+  replicas: 5
+  selector: 
+   matchExpressions:
+    - key: company
+      operator: In
+      values:
+        - HCL
+        - wipro
+  template:
+    metadata:
+      namespace: default
+      name: nginx-pod
+      labels:
+        company: HCL
+    spec:
+      containers:
+        - name: todoapp
+          image: nginx
+          ports:
+            - containerPort: 80
