@@ -19,7 +19,7 @@ spec:
         company: HCL
     spec:
       containers:
-        - name: todoapp
+        - name: nginxct
           image: nginx
           ports:
             - containerPort: 80
